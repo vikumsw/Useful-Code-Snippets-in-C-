@@ -55,19 +55,17 @@ class stringProcessor
     
     string processStage1(string str)
     {
-        return str;
+        return str + "Stage1_";
     }
     
     string processStage2(string str)
     {
-        return str;
+        return str + + "Stage2_";
     }
     
 public:
     string processString(string str)
     {
-        
-        
         fireObservers(PRE_STAGE_1);
         string str1 = processStage1(str);
         fireObservers(POST_STAGE_1);
@@ -80,9 +78,6 @@ public:
     {
         observer_list.push_back(ob);
     }
-    
-    
-    
 };
 
 int main()
@@ -90,5 +85,5 @@ int main()
   stringProcessor strP;
   logger log;
   strP.addObserver(&log);
-  strP.processString("Hello_");
+  cout<< strP.processString("Hello_") << endl;
 }
